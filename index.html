@@ -1,19 +1,26 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.webp">
 </head>
 <body>
     <div class="content">
         <h1>Happy Birthday!</h1>
         <img id="happycat" src="Resources/cat.png" alt="">
+        <p id="para">Psst! Hover the different items!</p>
         <button id="gift-btn">
             Open Gift
         </button>
+        <div id="iframe-container" class="hidden">
+            <iframe id="gift-iframe" src="gift.html"></iframe>
+        </div>
     </div>
+    <footer id="footer">
+        Made by Artyom
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

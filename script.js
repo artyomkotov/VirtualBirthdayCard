@@ -25,7 +25,11 @@ function createFloatingEmoji() {
 setInterval(createFloatingEmoji, 500);
 
 document.getElementById('gift-btn').addEventListener('click', () => {
-    alert('🎁 Surprise! Here\'s your gift!');
+    const iframeContainer = document.getElementById('iframe-container');
+    iframeContainer.classList.remove('hidden');
+    setTimeout(() => {
+        iframeContainer.classList.add('visible');
+    }, 10); // Small delay to ensure the transition occurs
 });
 
 function addEmojiBackground() {
