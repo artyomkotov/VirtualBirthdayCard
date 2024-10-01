@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.content {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+#gift-btn {
+    background-color: #ff6b6b;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#gift-btn:hover {
+    background-color: #ff4b4b;
+}
+
+.emoji {
+    position: absolute;
+    bottom: -10%; /* Start slightly below the screen */
+    font-size: 2rem;
+    opacity: 1;
+    animation: floatUp 8s linear forwards; /* The forwards property ensures it holds the final position */
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -10%; /* Start slightly below the screen */
+        opacity: 1; /* Stay fully visible while floating */
+    }
+    100% {
+        bottom: 110%; /* Move well beyond the top of the screen */
+        opacity: 1; /* Stay fully visible at the top */
+    }
+}
+
+.faded {
+    transition: opacity 1s ease-out;
+    opacity: 0; /* Fade out over 1 second */
+}
