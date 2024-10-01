@@ -8,8 +8,6 @@ function createFloatingEmoji() {
 
     // Random position for the emoji
     emoji.style.left = Math.random() * 100 + 'vw';
-    emoji.style.animationDuration = (Math.random() * 2 + 6) + 's'; // Random speed between 6 and 8 seconds
-
     document.body.appendChild(emoji);
 
     // Set a timeout to fade out the emoji after 3 seconds
@@ -20,7 +18,7 @@ function createFloatingEmoji() {
     // Remove the emoji after it has faded out
     setTimeout(() => {
         emoji.remove();
-    }, 5000); // Matches with fade out + transition time
+    }, 7000); // Matches with fade out + transition time
 }
 
 // Generate emojis every 500ms
@@ -29,6 +27,28 @@ setInterval(createFloatingEmoji, 500);
 document.getElementById('gift-btn').addEventListener('click', () => {
     alert('🎁 Surprise! Here\'s your gift!');
 });
-lementById('gift-btn').addEventListener('click', () => {
-    alert('🎁 Surprise! Here\'s your gift!');
-});
+
+function addEmojiBackground() {
+    const button = document.getElementById('gift-btn');
+    const emojiContainer = document.createElement('div');
+    emojiContainer.classList.add('emoji-background');
+    
+    const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
+    
+    positions.forEach(position => {
+        const emoji = document.createElement('div');
+        emoji.classList.add('button-emoji', position);
+        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        emojiContainer.appendChild(emoji);
+    });
+
+    button.appendChild(emojiContainer);
+
+    // Remove emoji container when hover ends
+    button.addEventListener('mouseleave', () => {
+        emojiContainer.remove();
+    });
+}
+
+// Add emoji background on hover
+document.getElementById('gift-btn').addEventListener('mouseenter', addEmojiBackground);
