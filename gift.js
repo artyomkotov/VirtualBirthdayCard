@@ -1,23 +1,30 @@
-const emojis = ['🎈', '❤️', '🎉', '💖'];
-
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.getElementById('giftSlider');
     const sliderValue = document.getElementById('sliderValue');
+    const feedbackText = document.getElementById('feedbackText');
     const submitBtn = document.getElementById('submitBtn');
     const commentField = document.getElementById('comment');
-    
+    feedbackText.id = 'feedbackText';
+    slider.parentElement.appendChild(feedbackText);
+
     // Update the slider value display
     slider.addEventListener('input', () => {
         sliderValue.textContent = slider.value;
+        if (slider.value == 10) {
+            feedbackText.textContent = "I'm glad you liked it! :)";
+        } else if (slider.value == 0) {
+            feedbackText.textContent = "I'm sorry you didn't like it :((";
+        } else {
+            feedbackText.textContent = "";
+        }
     });
-
     // Handle form submission
     submitBtn.addEventListener('click', () => {
         const sliderValue = slider.value;
         const comment = commentField.value;
 
         // Replace with your webhook URL
-        const webhookUrl = 'https://discord.com/api/webhooks/1290680238937866361/msIEIN77DEGUu-f_YbPQ7Xu0SrXiU5V1lCQnP9qlzEZxeyPlkdmKEu4oIbWpmafcKVS8';
+        const webhookUrl = 'REPLACE-WITH-YOUR-WEBHOOK';
 
         // Prepare the payload for Discord webhook
         const payload = {
@@ -39,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Thanks :)');
             } else {
                 console.error('Error:', response);
-                alert("Something didn't work :( tell me your thoughts on Discord instead :)");
+                alert("Something didn't work :( tell me your thoughts in DMs instead :)");
             }
         })
         .catch((error) => {
@@ -51,25 +58,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add emoji background on hover
     submitBtn.addEventListener('mouseenter', addEmojiBackground);
 });
-
-function addEmojiBackground() {
-    const button = document.getElementById('submitBtn');
-    const emojiContainer = document.createElement('div');
-    emojiContainer.classList.add('emoji-background');
-    
-    const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
-    
-    positions.forEach(position => {
-        const emoji = document.createElement('div');
-        emoji.classList.add('button-emoji', position);
-        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        emojiContainer.appendChild(emoji);
-    });
-
-    button.appendChild(emojiContainer);
-
-    // Remove emoji container when hover ends
-    button.addEventListener('mouseleave', () => {
-        emojiContainer.remove();
-    });
-}
