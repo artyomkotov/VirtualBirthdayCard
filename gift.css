@@ -5,22 +5,28 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+    background-color: #ff6b6b;
+    overflow: auto; /* Allow scrolling */
 }
 .container {
     display: flex;
-    width: 95%;
-    height: 95%;
+    flex-direction: row; /* Arrange elements in a row */
+    width: 90%;
+    max-width: 1200px; /* Limit the maximum width */
+    height: auto;
     background-color: white;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    overflow: hidden;
-    padding: 15px; /* Add padding to the container */
+    padding: 15px;
+}
+#feedbackText {
+    margin-left: 10px;
+    font-weight: bold;
 }
 .image-container {
     flex: 1;
-    margin-left: -100px;
+    margin: 0 auto; /* Center the image container */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,24 +37,22 @@ body {
     border-radius: 10px;
 }
 .content-container {
-    flex: 1;
-    padding: 0px;
+    flex: 2;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Center align the content */
+    align-items: flex-start; /* Align text to the left */
 }
 .content-container h1 {
     font-size: 2rem;
     color: #333;
-    margin-bottom: 20px;
-    width: 90%; /* Match the width of the slider */
+    text-align: left; /* Align text to the left */
 }
 .content-container p {
     font-size: 1rem;
     color: #666;
     margin-bottom: 30px;
-    width: 90%; /* Match the width of the slider */
 }
 .slider, textarea, button {
     width: 90%;
@@ -121,5 +125,17 @@ button:hover {
     }
     60% {
         transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        width: 100%;
+        height: auto;
+    }
+
+    .content-container h1 {
+        font-size: 1.5rem;
     }
 }
