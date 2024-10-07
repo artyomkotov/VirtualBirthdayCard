@@ -5,20 +5,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+    min-height: 100vh;
     background-color: #ff6b6b;
-    overflow: auto; /* Allow scrolling */
+    overflow: scroll;
 }
 .container {
     display: flex;
-    flex-direction: row; /* Arrange elements in a row */
+    flex-direction: row;
     width: 90%;
-    max-width: 1200px; /* Limit the maximum width */
     height: auto;
     background-color: white;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     padding: 15px;
+    box-sizing: border-box;
+    overflow: hidden; /* Ensure content stays within bounds */
 }
 #feedbackText {
     margin-left: 10px;
@@ -26,7 +27,7 @@ body {
 }
 .image-container {
     flex: 1;
-    margin: 0 auto; /* Center the image container */
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,36 +38,38 @@ body {
     border-radius: 10px;
 }
 .content-container {
-    flex: 2;
-    padding: 10px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Align text to the left */
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Ensure content stays within bounds */
 }
 .content-container h1 {
     font-size: 2rem;
-    color: #333;
-    text-align: left; /* Align text to the left */
+    margin: 10px 0;
 }
 .content-container p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 30px;
+    margin: 10px 0;
 }
-.slider, textarea, button {
-    width: 90%;
-    margin-bottom: 20px;
+.slider {
+    width: 80%;
+    margin: 10px 0;
+}
+textarea {
+    width: 80%;
+    margin: 10px 0;
+    resize: vertical;
+    max-width: 100%; /* Ensure textarea does not exceed container width */
+    max-height: 150px; /* Set a maximum height for the textarea */
+    overflow: auto; /* Add scrollbars if content exceeds max height */
+}
+button {
+    margin: 10px 0;
 }
 #sliderValue {
     font-weight: bold;
-}
-textarea {
-    height: 100px;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 button {
     padding: 10px 20px;

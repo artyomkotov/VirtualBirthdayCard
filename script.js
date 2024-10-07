@@ -1,5 +1,5 @@
 // Array of emojis to float up
-const emojis = ['🎈', '❤️', '🎉', '💖'];
+const emojis = ['🎈', '💝', '🎉', '💖'];
 
 function createFloatingEmoji() {
     const emoji = document.createElement('div');
