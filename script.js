@@ -1,5 +1,7 @@
 // Array of emojis to float up
-const emojis = ['🎈', '💝', '🎉', '💖'];
+const emojis = ['🎈', '💝', '🎉', '💖', '🎁', '🎊', '❤️', '🎀', '🎂'];
+let emojiInterval = 500;
+let emojiIntervalId = setInterval(createFloatingEmoji, emojiInterval);
 
 function createFloatingEmoji() {
     const emoji = document.createElement('div');
@@ -20,9 +22,6 @@ function createFloatingEmoji() {
         emoji.remove();
     }, 7000); // Matches with fade out + transition time
 }
-
-// Generate emojis every 500ms
-setInterval(createFloatingEmoji, 500);
 
 document.getElementById('gift-btn').addEventListener('click', () => {
     const iframeContainer = document.getElementById('iframe-container');
@@ -56,3 +55,16 @@ function addEmojiBackground() {
 
 // Add emoji background on hover
 document.getElementById('gift-btn').addEventListener('mouseenter', addEmojiBackground);
+
+const emojiIntervalSlider = document.getElementById('emoji-interval-slider');
+const emojiIntervalValue = document.getElementById('emoji-interval-value');
+
+emojiIntervalSlider.addEventListener('input', (event) => {
+    emojiInterval = event.target.value;
+    emojiIntervalValue.textContent = emojiInterval;
+    clearInterval(emojiIntervalId);
+    emojiIntervalId = setInterval(createFloatingEmoji, emojiInterval);
+
+    emojiIntervalSlider.style.setProperty('--slider-value', `${(emojiIntervalSlider.value - emojiIntervalSlider.min) / (emojiIntervalSlider.max - emojiIntervalSlider.min) * 100}%`);
+
+});
