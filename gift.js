@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Thanks :)');
             } else {
                 console.error('Error:', response);
-                alert("Something didn't work :( tell me your thoughts in DMs instead :)");
+                alert("Didn't work :(");
             }
         })
         .catch((error) => {

@@ -5,7 +5,6 @@
     100% { background-color: #ffc1ec; }
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -31,7 +30,7 @@ body {
 h1 {
     font-size: 3.5rem;
     color: #ff6b6b;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     font-weight: bolder;
     transition: font-size 0.3s ease-in-out; /* Smooth transition for font size */
 }
@@ -41,8 +40,8 @@ h1:hover {
 }
 
 #happycat {
-    width: 250px;
-    height: 230px;
+    width: 15.625rem;
+    height: 14.375rem;
     margin: 0 auto;
     display: block;
 }
@@ -67,7 +66,7 @@ h1:hover {
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     width: 100%; /* Full width */
-    padding: 10px 0; /* Optional: padding for better appearance */
+    padding: 0.625rem 0; /* Optional: padding for better appearance */
 }
 
 .emoji-background {
@@ -85,9 +84,9 @@ h1:hover {
     background-color: #ff6b6b;
     border: none;
     color: white;
-    padding: 15px 30px;
+    padding: 0.9375rem 1.875rem;
     font-size: 1.5rem;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     cursor: pointer;
     overflow: hidden;
     z-index: 1;
@@ -95,7 +94,7 @@ h1:hover {
     background-size: 200% 100%;
     background-image: linear-gradient(to right, white 50%, #ff6b6b 50%);
     background-position: right bottom;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.625rem 0.9375rem rgba(0, 0, 0, 0.3);
 }
 
 #gift-btn:hover {
@@ -146,10 +145,10 @@ h1:hover {
         transform: translateY(0);
     }
     40% {
-        transform: translateY(-10px);
+        transform: translateY(-0.625rem);
     }
     60% {
-        transform: translateY(-5px);
+        transform: translateY(-0.3125rem);
     }
 }
 
@@ -195,14 +194,13 @@ h1:hover {
     width: 80%;
     height: 80%;
     background: white;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.625rem 0.9375rem rgba(0, 0, 0, 0.3);
     z-index: 1000;
     opacity: 0; /* Start hidden */
     transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth fade-in and slide transition */
-    border-radius: 15px; /* Adjust the value as needed */
+    border-radius: 0.9375rem; /* Adjust the value as needed */
     overflow: hidden; /* Ensure content doesn't overflow the rounded corners */
 }
-
 
 #iframe-container.visible {
     opacity: 1; /* Fully visible */
@@ -226,13 +224,13 @@ h1:hover {
 #emoji-interval-slider {
     -webkit-appearance: none;
     appearance: none;
-    width: 150px;
-    height: 5px;
+    width: 9.375rem;
+    height: 0.3125rem;
     background: #ddd;
     outline: none;
     opacity: 0.7;
     transition: opacity 0.2s;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
 
 #emoji-interval-slider:hover {
@@ -242,39 +240,71 @@ h1:hover {
 #emoji-interval-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 10px;
-    height: 10px;
+    width: 0.625rem;
+    height: 0.625rem;
     background: #ff6b6b;
     cursor: pointer;
     border-radius: 50%;
 }
 
 #emoji-interval-slider::-moz-range-thumb {
-    width: 10px;
-    height: 10px;
+    width: 0.625rem;
+    height: 0.625rem;
     background: #ff6b6b;
     cursor: pointer;
     border-radius: 50%;
 }
+
 #emoji-interval-slider::-webkit-slider-runnable-track {
     width: 100%;
-    height: 5px;
+    height: 0.3125rem;
     cursor: pointer;
     background: linear-gradient(to right, #ff6b6b 0%, #ff6b6b var(--slider-value), #ddd var(--slider-value), #ddd 100%);
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
+
 #emoji-interval-slider::-moz-range-track {
     width: 100%;
-    height: 5px;
+    height: 0.3125rem;
     cursor: pointer;
     background: linear-gradient(to right, #ff6b6b 0%, #ff6b6b var(--slider-value), #ddd var(--slider-value), #ddd 100%);
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
+
 #footer label {
     font-size: 0.9rem;
-    margin-right: 10px;
+    margin-right: 0.625rem;
 }
 
 #footer span {
     font-size: 0.9rem;
+}
+
+#bottom-right-btn {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    padding: 0.625rem 1.25rem;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    opacity: 0; /* Start with opacity 0 */
+    transform: translateY(1.25rem); /* Start with a slight downward offset */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth fade-in and slide transition */
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+#bottom-right-btn.visible {
+    display: block; /* Ensure it's displayed */
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide into place */
+}
+
+#bottom-right-btn:hover {
+    background-position: left bottom; /* Sliding effect */
+    transition: background-position 0.5s ease-in-out, color 0.3s ease-in-out;
+    animation: bounce 0.5s; /* Apply bounce animation */
 }
