@@ -58,3 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add emoji background on hover
     submitBtn.addEventListener('mouseenter', addEmojiBackground);
 });
+document.getElementById('giftSlider').addEventListener('input', function() {
+    const sliderValue = this.value;
+    const sliderValueLabel = document.getElementById('sliderValue');
+
+    // Calculate the color based on the slider value
+    const red = Math.min(255, 255 * (10 - sliderValue) / 5);
+    const green = Math.min(255, 255 * sliderValue / 5);
+    const color = `rgb(${red}, ${green}, 0)`;
+
+    // Update the slider value label and its color
+    sliderValueLabel.textContent = sliderValue;
+    sliderValueLabel.style.color = color;
+    sliderValueLabel.style.textShadow = '0.5px 1px 2px #000'; // Add outline
+
+});

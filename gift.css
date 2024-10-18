@@ -20,6 +20,23 @@ body {
     box-sizing: border-box;
     overflow: hidden; /* Ensure content stays within bounds */
 }
+#comment {
+    width: 100%;
+    max-width: calc(100% - 2rem); /* Adjust based on container padding/margin */
+    padding: 0.9375rem;
+    border: 1px solid #ddd;
+    border-radius: 0.3125rem;
+    font-size: 1rem;
+    resize: vertical;
+    box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+#comment:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0.625rem rgba(255, 107, 107, 0.5);
+    outline: none;
+}
 #feedbackText {
     margin-left: 10px;
     font-weight: bold;
